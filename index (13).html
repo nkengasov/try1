@@ -602,13 +602,13 @@
                         <button class="btn btn-primary">
                             <i class="fas fa-search"></i> Начать поиск
                         </button>
-                        <button class="btn btn-secondary">
+                        <button class="btn btn-secondary" id="how-it-works-btn">
                             <i class="fas fa-question-circle"></i> Как это работает
                         </button>
                     </div>
                     <div class="hero-stats">
                         <div class="stat">
-                            <div class="stat-value">2,847</div>
+                            <div class="stat-value" id="found-count">0</div>
                             <div class="stat-label">Найдено участников</div>
                         </div>
                         <div class="stat">
@@ -632,7 +632,7 @@
     </section>
 
     <!-- Features -->
-    <section class="features">
+    <section class="features" id="how-it-works">
         <div class="container">
             <h2 class="section-title">Как работает наш поиск</h2>
             <p class="section-subtitle">Мы используем современные технологии и проверенные методы для поиска участников специальной военной операции</p>
@@ -644,7 +644,6 @@
                     </div>
                     <h3 class="feature-title">Обширная база данных</h3>
                     <p class="feature-description">Доступ к актуальным базам данных военнослужащих, госпиталей и пунктов временной дислокации.</p>
-                    <a href="#" class="btn btn-secondary">Подробнее</a>
                 </div>
                 
                 <div class="feature-card">
@@ -653,7 +652,6 @@
                     </div>
                     <h3 class="feature-title">Верификация данных</h3>
                     <p class="feature-description">Все данные проходят тщательную проверку и подтверждение через официальные источники.</p>
-                    <a href="#" class="btn btn-secondary">Подробнее</a>
                 </div>
                 
                 <div class="feature-card">
@@ -662,7 +660,6 @@
                     </div>
                     <h3 class="feature-title">Конфиденциальность</h3>
                     <p class="feature-description">Мы гарантируем полную конфиденциальность ваших данных и поисковых запросов.</p>
-                    <a href="#" class="btn btn-secondary">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -794,6 +791,39 @@
                 }
             });
         });
+
+        // How it works button scroll
+        document.getElementById('how-it-works-btn').addEventListener('click', function() {
+            const featuresSection = document.getElementById('how-it-works');
+            window.scrollTo({
+                top: featuresSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate numbers
+        function animateNumber(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            
+            function updateNumber() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateNumber);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateNumber();
+        }
+
+        // Start animation after 2 seconds
+        setTimeout(function() {
+            const foundCountElement = document.getElementById('found-count');
+            animateNumber(foundCountElement, 8149, 2000); // 8149 over 2 seconds
+        }, 2000);
     </script>
 </body>
 </html>
