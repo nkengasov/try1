@@ -36,6 +36,25 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z" fill="%23c8a951" opacity="0.1"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="35" fill="none" stroke="%231a472a" stroke-width="2" opacity="0.1"/><path d="M40,15 L45,30 L60,30 L47,40 L52,55 L40,45 L28,55 L33,40 L20,30 L35,30 Z" fill="%23c8a951" opacity="0.1"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="%231a472a" opacity="0.05"/><circle cx="60" cy="60" r="30" fill="%23c8a951" opacity="0.05"/></svg>');
+            background-size: 100px, 80px, 120px;
+            background-position: 10% 20%, 90% 70%, 70% 10%;
+            background-repeat: no-repeat;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .container {
@@ -106,7 +125,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 25px;
         }
 
         nav a {
@@ -114,7 +133,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            padding: 8px 13px;
+            padding: 8px 16px;
             border-radius: 8px;
             position: relative;
         }
@@ -159,9 +178,17 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, #1a472a, #c8a951, #4a7c59);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero-subtitle {
@@ -239,30 +266,18 @@
             align-items: center;
         }
 
-        .hero-image-placeholder {
+        .hero-image img {
             width: 100%;
-            height: 350px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            max-width: 1000px;
+            height: 600px;
+            object-fit: cover;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            transition: var(--transition);
         }
 
-        .hero-image-placeholder i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .hero-image-placeholder p {
-            font-size: 1.1rem;
-            max-width: 300px;
+        .hero-image img:hover {
+            transform: translateY(-10px);
         }
 
         /* Features */
@@ -334,12 +349,20 @@
             background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: var(--border-radius);
             margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .testimonials-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            transition: transform 0.8s ease;
+            height: 100%;
         }
 
         .testimonial-card {
@@ -347,11 +370,11 @@
             border-radius: var(--border-radius);
             padding: 30px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .testimonial-text {
@@ -359,6 +382,7 @@
             margin-bottom: 20px;
             color: var(--dark);
             position: relative;
+            font-size: 1.1rem;
         }
 
         .testimonial-text::before {
@@ -397,6 +421,28 @@
         .testimonial-info p {
             color: var(--gray);
             font-size: 0.9rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            opacity: 1;
+            transform: scale(1.2);
         }
 
         /* CTA */
@@ -507,6 +553,10 @@
             .hero-buttons {
                 justify-content: center;
             }
+
+            .hero-image img {
+                height: 400px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -542,6 +592,10 @@
             .cta-title {
                 font-size: 2rem;
             }
+
+            .hero-image img {
+                height: 300px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -556,6 +610,10 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .hero-image img {
+                height: 250px;
             }
         }
     </style>
@@ -584,7 +642,6 @@
                         <li><a href="#">База данных</a></li>
                         <li><a href="#">Помощь</a></li>
                         <li><a href="#">Контакты</a></li>
-                        <li><a href="#" class="btn btn-primary">Войти</a></li>
                     </ul>
                 </nav>
             </div>
@@ -622,10 +679,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="hero-image-placeholder">
-                        <i class="fas fa-search-location"></i>
-                        <p>Поиск участников специальной военной операции</p>
-                    </div>
+                    <img src="https://smolgazeta.ru/fc-web/fc-files/2023/04/125644.jpg" alt="Поиск участников СВО">
                 </div>
             </div>
         </div>
@@ -671,39 +725,82 @@
             <h2 class="section-title">Истории успеха</h2>
             <p class="section-subtitle">Реальные отзывы от людей, которые нашли своих близких с помощью нашего сервиса</p>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">ОК</div>
-                        <div class="testimonial-info">
-                            <h4>Ольга К.</h4>
-                            <p>Нашла мужа</p>
+            <div class="testimonials-container">
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ОК</div>
+                            <div class="testimonial-info">
+                                <h4>Ольга К.</h4>
+                                <p>Нашла мужа</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">АС</div>
+                            <div class="testimonial-info">
+                                <h4>Алексей С.</h4>
+                                <p>Нашел брата</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">МП</div>
+                            <div class="testimonial-info">
+                                <h4>Мария П.</h4>
+                                <p>Нашла сына</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Благодаря вашему сервису нашел отца, который пропал без вести 5 месяцев назад. Оказалось, он попал в госпиталь с контузией и не мог связаться с семьей. Вечная благодарность!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ИВ</div>
+                            <div class="testimonial-info">
+                                <h4>Иван В.</h4>
+                                <p>Нашел отца</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Мой муж считался пропавшим 4 месяца. Через ваш сайт удалось установить, что он находится в другом регионе и восстанавливается после ранения. Спасибо за надежду!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ЕС</div>
+                            <div class="testimonial-info">
+                                <h4>Елена С.</h4>
+                                <p>Нашла мужа</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Сына не было сведений 6 месяцев. Благодаря вашей платформе нашли его в списках раненых, доставленных в тыловой госпиталь. Теперь он дома и восстанавливается!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">НК</div>
+                            <div class="testimonial-info">
+                                <h4>Наталья К.</h4>
+                                <p>Нашла сына</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">АС</div>
-                        <div class="testimonial-info">
-                            <h4>Алексей С.</h4>
-                            <p>Нашел брата</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">МП</div>
-                        <div class="testimonial-info">
-                            <h4>Мария П.</h4>
-                            <p>Нашла сына</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" data-index="0"></div>
+                <div class="carousel-indicator" data-index="1"></div>
+                <div class="carousel-indicator" data-index="2"></div>
+                <div class="carousel-indicator" data-index="3"></div>
+                <div class="carousel-indicator" data-index="4"></div>
+                <div class="carousel-indicator" data-index="5"></div>
             </div>
         </div>
     </section>
@@ -782,7 +879,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                     
@@ -824,6 +921,39 @@
             const foundCountElement = document.getElementById('found-count');
             animateNumber(foundCountElement, 8149, 2000); // 8149 over 2 seconds
         }, 2000);
+
+        // Testimonials carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const carousel = document.querySelector('.testimonials-carousel');
+        const totalTestimonials = testimonials.length;
+        
+        function showTestimonial(index) {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+            
+            currentTestimonial = index;
+        }
+        
+        function nextTestimonial() {
+            const nextIndex = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(nextIndex);
+        }
+        
+        // Add click events to indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showTestimonial(index);
+            });
+        });
+        
+        // Start carousel
+        setInterval(nextTestimonial, 3000);
     </script>
 </body>
 </html>
