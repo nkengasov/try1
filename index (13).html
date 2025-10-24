@@ -47,11 +47,13 @@
             width: 100%;
             height: 100%;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z" fill="%23c8a951" opacity="0.1"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="35" fill="none" stroke="%231a472a" stroke-width="2" opacity="0.1"/><path d="M40,15 L45,30 L60,30 L47,40 L52,55 L40,45 L28,55 L33,40 L20,30 L35,30 Z" fill="%23c8a951" opacity="0.1"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="%231a472a" opacity="0.05"/><circle cx="60" cy="60" r="30" fill="%23c8a951" opacity="0.05"/></svg>');
-            background-size: 100px, 80px, 120px;
-            background-position: 10% 20%, 90% 70%, 70% 10%;
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><path d="M60,20 L70,50 L100,50 L75,70 L85,100 L60,80 L35,100 L45,70 L20,50 L50,50 Z" fill="%23c8a951" opacity="0.2"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%231a472a" stroke-width="3" opacity="0.2"/><path d="M50,25 L55,40 L70,40 L57,50 L62,65 L50,55 L38,65 L43,50 L30,40 L45,40 Z" fill="%23c8a951" opacity="0.2"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="65" fill="%231a472a" opacity="0.1"/><circle cx="75" cy="75" r="45" fill="%23c8a951" opacity="0.1"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect x="15" y="15" width="50" height="50" fill="%231a472a" opacity="0.15" rx="5"/><path d="M40,25 L45,35 L55,35 L47,42 L50,52 L40,45 L30,52 L33,42 L25,35 L35,35 Z" fill="%23c8a951" opacity="0.2"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90"><polygon points="45,10 55,35 80,35 60,50 65,75 45,60 25,75 30,50 10,35 35,35" fill="%23c8a951" opacity="0.15"/></svg>');
+            background-size: 120px, 100px, 150px, 80px, 90px;
+            background-position: 5% 10%, 95% 20%, 10% 80%, 85% 70%, 70% 40%;
             background-repeat: no-repeat;
             z-index: -1;
             pointer-events: none;
@@ -267,8 +269,7 @@
         }
 
         .hero-image img {
-            width: 100%;
-            max-width: 1000px;
+            width: 1000px;
             height: 600px;
             object-fit: cover;
             border-radius: var(--border-radius);
@@ -349,20 +350,12 @@
             background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: var(--border-radius);
             margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .testimonials-container {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .testimonials-carousel {
-            display: flex;
-            transition: transform 0.8s ease;
-            height: 100%;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .testimonial-card {
@@ -370,11 +363,11 @@
             border-radius: var(--border-radius);
             padding: 30px;
             box-shadow: var(--shadow);
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
         }
 
         .testimonial-text {
@@ -382,7 +375,6 @@
             margin-bottom: 20px;
             color: var(--dark);
             position: relative;
-            font-size: 1.1rem;
         }
 
         .testimonial-text::before {
@@ -421,28 +413,6 @@
         .testimonial-info p {
             color: var(--gray);
             font-size: 0.9rem;
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            opacity: 0.5;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .carousel-indicator.active {
-            opacity: 1;
-            transform: scale(1.2);
         }
 
         /* CTA */
@@ -540,6 +510,15 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                max-width: 1000px;
+                max-height: 600px;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-content {
                 flex-direction: column;
@@ -555,7 +534,8 @@
             }
 
             .hero-image img {
-                height: 400px;
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -592,10 +572,6 @@
             .cta-title {
                 font-size: 2rem;
             }
-
-            .hero-image img {
-                height: 300px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -610,10 +586,6 @@
             .btn {
                 width: 100%;
                 justify-content: center;
-            }
-
-            .hero-image img {
-                height: 250px;
             }
         }
     </style>
@@ -725,82 +697,39 @@
             <h2 class="section-title">Истории успеха</h2>
             <p class="section-subtitle">Реальные отзывы от людей, которые нашли своих близких с помощью нашего сервиса</p>
             
-            <div class="testimonials-container">
-                <div class="testimonials-carousel">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ОК</div>
-                            <div class="testimonial-info">
-                                <h4>Ольга К.</h4>
-                                <p>Нашла мужа</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">АС</div>
-                            <div class="testimonial-info">
-                                <h4>Алексей С.</h4>
-                                <p>Нашел брата</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">МП</div>
-                            <div class="testimonial-info">
-                                <h4>Мария П.</h4>
-                                <p>Нашла сына</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Благодаря вашему сервису нашел отца, который пропал без вести 5 месяцев назад. Оказалось, он попал в госпиталь с контузией и не мог связаться с семьей. Вечная благодарность!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ИВ</div>
-                            <div class="testimonial-info">
-                                <h4>Иван В.</h4>
-                                <p>Нашел отца</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Мой муж считался пропавшим 4 месяца. Через ваш сайт удалось установить, что он находится в другом регионе и восстанавливается после ранения. Спасибо за надежду!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ЕС</div>
-                            <div class="testimonial-info">
-                                <h4>Елена С.</h4>
-                                <p>Нашла мужа</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Сына не было сведений 6 месяцев. Благодаря вашей платформе нашли его в списках раненых, доставленных в тыловой госпиталь. Теперь он дома и восстанавливается!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">НК</div>
-                            <div class="testimonial-info">
-                                <h4>Наталья К.</h4>
-                                <p>Нашла сына</p>
-                            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ОК</div>
+                        <div class="testimonial-info">
+                            <h4>Ольга К.</h4>
+                            <p>Нашла мужа</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-indicators">
-                <div class="carousel-indicator active" data-index="0"></div>
-                <div class="carousel-indicator" data-index="1"></div>
-                <div class="carousel-indicator" data-index="2"></div>
-                <div class="carousel-indicator" data-index="3"></div>
-                <div class="carousel-indicator" data-index="4"></div>
-                <div class="carousel-indicator" data-index="5"></div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">АС</div>
+                        <div class="testimonial-info">
+                            <h4>Алексей С.</h4>
+                            <p>Нашел брата</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">МП</div>
+                        <div class="testimonial-info">
+                            <h4>Мария П.</h4>
+                            <p>Нашла сына</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -921,39 +850,6 @@
             const foundCountElement = document.getElementById('found-count');
             animateNumber(foundCountElement, 8149, 2000); // 8149 over 2 seconds
         }, 2000);
-
-        // Testimonials carousel
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const carousel = document.querySelector('.testimonials-carousel');
-        const totalTestimonials = testimonials.length;
-        
-        function showTestimonial(index) {
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-            
-            currentTestimonial = index;
-        }
-        
-        function nextTestimonial() {
-            const nextIndex = (currentTestimonial + 1) % totalTestimonials;
-            showTestimonial(nextIndex);
-        }
-        
-        // Add click events to indicators
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                showTestimonial(index);
-            });
-        });
-        
-        // Start carousel
-        setInterval(nextTestimonial, 3000);
     </script>
 </body>
 </html>
