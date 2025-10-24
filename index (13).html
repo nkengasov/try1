@@ -39,45 +39,6 @@
             position: relative;
         }
 
-        /* Георгиевская лента по бокам */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 30px;
-            height: 100%;
-            background: repeating-linear-gradient(
-                90deg,
-                #000 0%, #000 20%,
-                #ffd700 20%, #ffd700 40%,
-                #000 40%, #000 60%,
-                #ff8c00 60%, #ff8c00 80%,
-                #000 80%, #000 100%
-            );
-            background-size: 30px 100%;
-            z-index: 100;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 30px;
-            height: 100%;
-            background: repeating-linear-gradient(
-                90deg,
-                #000 0%, #000 20%,
-                #ffd700 20%, #ffd700 40%,
-                #000 40%, #000 60%,
-                #ff8c00 60%, #ff8c00 80%,
-                #000 80%, #000 100%
-            );
-            background-size: 30px 100%;
-            z-index: 100;
-        }
-
         /* Военные медали на фоне */
         .military-background {
             position: fixed;
@@ -149,7 +110,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 50px; /* Увеличил отступы для ленты */
+            padding: 0 20px;
         }
 
         /* Header */
@@ -164,7 +125,7 @@
             z-index: 1000;
             transition: var(--transition);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
-            margin: 0 30px; /* Отступ для ленты */
+            margin: 0 0 60px 0;
         }
 
         .header-content {
@@ -183,14 +144,33 @@
             font-size: 2rem;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '★';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 2px solid var(--primary);
         }
 
         .logo:hover .logo-icon {
@@ -249,7 +229,6 @@
             background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             margin-bottom: 60px;
-            margin: 0 30px 60px 30px; /* Отступ для ленты */
         }
 
         .hero-content {
@@ -356,8 +335,8 @@
         }
 
         .hero-image img {
-            width: 300px;
-            height: 300px;
+            width: 380px;
+            height: 380px;
             object-fit: cover;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
@@ -372,7 +351,6 @@
         /* Features */
         .features {
             padding: 60px 0;
-            margin: 0 30px; /* Отступ для ленты */
         }
 
         .section-title {
@@ -440,7 +418,6 @@
             background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: var(--border-radius);
             margin-bottom: 60px;
-            margin: 0 30px 60px 30px; /* Отступ для ленты */
         }
 
         .testimonials-grid {
@@ -515,7 +492,6 @@
             color: white;
             border-radius: var(--border-radius);
             margin-bottom: 60px;
-            margin: 0 30px 60px 30px; /* Отступ для ленты */
         }
 
         .cta-title {
@@ -548,7 +524,6 @@
             color: white;
             padding: 60px 0 30px;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
-            margin: 0 30px; /* Отступ для ленты */
         }
 
         .footer-content {
@@ -657,17 +632,8 @@
                 font-size: 2rem;
             }
 
-            body::before,
-            body::after {
-                width: 15px;
-            }
-
             .container {
-                padding: 0 25px;
-            }
-
-            header, .hero, .features, .testimonials, .cta, footer {
-                margin: 0 15px 30px 15px;
+                padding: 0 20px;
             }
         }
 
@@ -686,8 +652,8 @@
             }
 
             .hero-image img {
-                width: 250px;
-                height: 250px;
+                width: 300px;
+                height: 300px;
             }
         }
     </style>
