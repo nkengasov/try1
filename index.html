@@ -1,424 +1,491 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO метатеги -->
-    <title>Благотворительный фонд медико-социальной реабилитации | Центр помощи жертвам социальных проблем</title>
-    <meta name="description" content="Благотворительный фонд помощи жертвам социальных проблем, терроризма и военных конфликтов. Поиск пропавших военнослужащих, гуманитарная помощь, реабилитация" />
-    <meta name="keywords" content="благотворительный фонд, помощь военным, поиск пропавших, гуманитарная помощь, реабилитация" />
-    
-    <!-- Open Graph -->
-    <meta property="og:url" content="http://медикосоциал.рф" />
-    <meta property="og:title" content="Благотворительный фонд медико-социальной реабилитации" />
-    <meta property="og:description" content="Помощь жертвам социальных проблем, терроризма и военных конфликтов. Поиск пропавших военнослужащих" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://static.tildacdn.com/tild6662-3863-4338-a365-356239616466/_.jpg" />
-    <meta property="og:locale" content="ru_RU" />
-    
-    <link rel="canonical" href="http://медикосоциал.рф">
-    
-    <!-- Технические метатеги -->
-    <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="https://ws.tildacdn.com">
-    <link rel="dns-prefetch" href="https://static.tildacdn.com">
-    <link rel="shortcut icon" href="https://static.tildacdn.com/img/tildafavicon.ico" type="image/x-icon" />
-    
-    <!-- Preload критичных ресурсов -->
-    <link rel="preload" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css" as="style">
-    <link rel="preload" href="https://static.tildacdn.com/js/jquery-1.10.2.min.js" as="script">
-    
-    <!-- Стили -->
-    <link rel="stylesheet" href="https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js" async charset="utf-8">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css" type="text/css" media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/ws/project7749907/tilda-blocks-page39170591.min.css?t=1754031807" type="text/css" media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-cover-1.0.min.css" type="text/css" media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-slds-1.4.min.css" type="text/css" media="print" onload="this.media='all';">
-    <noscript><link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-slds-1.4.min.css" type="text/css" media="all"></noscript>
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-zoom-2.0.min.css" type="text/css" media="print" onload="this.media='all';">
-    <noscript><link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-zoom-2.0.min.css" type="text/css" media="all"></noscript>
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/fonts-tildasans.css" type="text/css" media="all">
-    
-    <!-- Скрипты -->
-    <script nomodule src="https://static.tildacdn.com/js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-scripts-3.0.min.js" charset="utf-8" defer></script>
-    
-    <style>
-        /* Дополнительные стили для улучшения UX */
-        .loading-spinner {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-        }
-        
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #1f5bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: none;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .scroll-to-top:hover {
-            background: #122361;
-            transform: translateY(-3px);
-        }
-        
-        /* Улучшения доступности */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* Анимации */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* Улучшения для мобильных устройств */
-        @media (max-width: 768px) {
-            .mobile-optimized {
-                font-size: 16px; /* Предотвращает масштабирование на iOS */
-            }
-            
-            .t-menu__link-item {
-                padding: 12px 15px !important;
-            }
-        }
-        
-        /* Контрастность для доступности */
-        .high-contrast {
-            filter: contrast(1.2);
-        }
-    </style>
+<title>Результаты поиска погибших героев СВО с именем/фамилией </title>
+<meta name="description" content=""/>
+<link rel="canonical" href="https://победаипамять.рф/search"/>
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css?ver=1.3.5">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<style>
+body {
+	    font-family: Montserrat;
+		  font-weight: 400;
+      background: url(/img/back-compress.jpg);
+    background-size: cover;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+ul{
+	font-weight: 600;
+}
+.description {
+    text-align: justify;
+}
+a.button {
+    color: white;
+    text-decoration: none;
+}
+a.button:hover {
+    color: #115dd8;
+}
+main {
+  max-width: 1100px;
+  margin: 5% auto;
+}
+
+.card {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
+  transition: 200ms;
+  background: #fff;
+  min-height: 80%;
+}
+.card .card__title {
+  display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  cursor: pointer;
+}
+.card .searchSection {
+  padding: 30px 40px;
+}
+.card .card__title h3 {
+  flex: 0 1 200px;
+  text-align: right;
+  margin: 0;
+  color: #252525;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.card .card__title .icon {
+  flex: 1 0 5px;
+  background: #115dd8;
+  color: #fff;
+  padding: 0px 10px;
+  transition: 200ms;
+}
+.icon a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+.card .card__title .icon > a {
+  color: #fff;
+}
+.card .card__title .icon:hover {
+  background: #252525;
+}
+.card .card__body {
+  padding: 0 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  margin-bottom: 25px;
+}
+.card .card__body > .half {
+  box-sizing: border-box;
+  padding: 0 15px;
+  flex: 1 0 50%;
+}
+.card .card__body .featured_text h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 35px;
+  color: #181e28;
+}
+.card .card__body .featured_text p {
+  margin: 0;
+  padding: 0;
+}
+.card .card__body .featured_text p.sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #686e77;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.card .card__body .featured_text p.price {
+  font-family: "Fjalla One", sans-serif;
+  color: #252525;
+  font-size: 26px;
+}
+.card .card__body .image {
+  padding-top: 15px;
+  width: 100%;
+}
+.card .card__body .image img {
+  display: block;
+  max-width: 300px;
+  height: auto;
+}
+.card .card__body .description {
+  margin-bottom: 25px;
+}
+.card .card__body .description p {
+  margin: 0;
+  font-weight: 300;
+  line-height: 27px;
+  font-size: 16px;
+  color: #555;
+}
+.card .card__body span.stock {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #a1cc16;
+}
+.card .card__body .reviews .stars {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+}
+.card .card__body .reviews .stars > li {
+  display: inline-block;
+}
+.card .card__body .reviews .stars > li .fa {
+  color: #f7c01b;
+}
+.card .card__body .reviews > span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #555;
+}
+.card .card__footer {
+  padding: 30px 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  align-items: center;
+  position: relative;
+  margin-top: 30px;
+}
+.card .card__footer::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 40px;
+  width: calc(100% - 40px);
+  height: 3px;
+  background: #115dd8;
+  background: linear-gradient(to right, #115dd8 0%, #115dd8 20%, #ddd 20%, #ddd 100%);
+}
+.card .card__footer .recommend {
+  flex: 1 0 10px;
+}
+.card .card__footer .recommend p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+.card .card__footer .recommend h2 {
+  margin: 0;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #115dd8;
+}
+.card .card__footer .action a.button {
+  cursor: pointer;
+  border: 1px solid #115dd8;
+  padding: 14px 30px;
+  border-radius: 200px;
+  color: #fff;
+  background: #115dd8;
+  font-size: 16px;
+  transition: 200ms;
+}
+.card .card__footer .action a.button:hover {
+  background: #fff;
+  color: #115dd8;
+}
+.blockSearchHero {
+    display: flex;
+	padding: 10px 0;
+}
+.textSearchHero h2 {
+    padding: 0 !important;
+    margin: 0;
+	font-size: 18px;
+}
+.textSearchHero h3 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+	font-size: 14px;
+}
+.textSearchHero {
+    padding: 0 10px;
+}
+.textSearchHero a.linkHero {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    color: #115dd8;
+}
+.blockHeaderHero h1 {
+    font-size: 22px;
+    text-align: center;
+	margin: 0;
+}
+.blockHeaderHero {
+    margin: 0 auto;
+    text-align: center;
+	margin-bottom: 20px;
+}
+form {
+    width: 90%;
+    border: solid 2px #115dd8;
+    padding: 5%;
+	font-family: Montserrat;
+}
+input[type="text"] {
+    width: 80%;
+    height: 40px;
+    border: solid 2px #115dd8;
+    font-size: 13px;
+    text-transform: uppercase;
+		font-family: Montserrat;
+}
+input[type="submit"] {
+    width: 19%;
+    height: 40px;
+    background-color: #115dd8;
+    border: solid 2px #115dd8;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+	font-family: Montserrat;
+}
+::placeholder {
+    color: #000000ab;
+    font-size: 13px;
+    text-transform: uppercase;
+	font-family: Montserrat;
+}
+body {
+    overflow: auto;
+}
+@media screen and (max-width: 600px) {
+	::placeholder {
+    font-size: 10px;
+}
+	input[type="submit"] {
+    width: 33%;
+    height: 40px;
+    background-color: #115dd8;
+    border: solid 2px #115dd8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+}
+input[type="text"] {
+    width: 65%;
+    height: 40px;
+    border: solid 2px #115dd8;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-family: Montserrat;
+}
+.card__body {
+    display: block !important;
+}
+.half {
+    flex: none !important;
+    width: 100%;
+}
+.card .card__body .description {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.featured_text {
+    text-align: center;
+}
+.card .card__body .image img {
+    margin: 0 auto;
+}
+}
+
+@media screen and (max-width: 500px) {
+	.blockSearchHero img {
+    display: none;
+}
+	.card .card__footer .action a.button {
+    padding: 14px 15px;
+    font-size: 15px;
+}
+.card__footer {
+    display: block !important;
+    text-align: center;
+}
+.action {
+    margin-top: 25px;
+}
+.card .card__body {
+    padding: 0 20px;
+}
+}
+</style>
 </head>
-
-<body class="t-body" style="margin:0;">
-    <!-- Индикатор загрузки -->
-    <div class="loading-spinner" id="loadingSpinner">
-        <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #1f5bff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-    </div>
-    
-    <!-- Кнопка "Наверх" -->
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться наверх">
-        ↑
-    </button>
-    
-    <!-- Скринридер объявление -->
-    <div class="sr-only" id="pageTitle">
-        Главная страница благотворительного фонда медико-социальной реабилитации
-    </div>
-
-    <!--allrecords-->
-    <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="7749907" data-tilda-page-id="39170591" data-tilda-page-alias="homepage" data-tilda-formskey="8719eec200da8a0b9dc6f5a2e7749907" data-tilda-cookie="no" data-tilda-lazy="yes" data-tilda-project-lang="RU" data-tilda-root-zone="com" data-tilda-page-headcode="yes" data-tilda-ts="y" data-tilda-project-country="RU">
-        
-        <!-- Остальная разметка остается без изменений, но добавляем улучшения -->
-        
-        <!-- Hero секция с улучшенной доступностью -->
-        <div id="rec633800153" class="r t-rec" style=" " data-animationappear="off" data-record-type="275">
-            <div class="t-cover" id="recorddiv633800153" bgimgfield="img" style="height:120vh;background-image:url('https://thb.tildacdn.com/tild6662-3863-4338-a365-356239616466/-/resize/20x/_.jpg');" role="banner" aria-labelledby="heroTitle">
-                <div class="t-cover__carrier" id="coverCarry633800153" data-content-cover-id="633800153" data-content-cover-bg="https://static.tildacdn.com/tild6662-3863-4338-a365-356239616466/_.jpg" data-display-changed="true" data-content-cover-height="120vh" data-content-cover-parallax="dynamic" data-content-use-image-for-mobile-cover="" style="height:120vh;background-attachment:scroll;">
-                    <meta itemprop="image" content="https://static.tildacdn.com/tild6662-3863-4338-a365-356239616466/_.jpg">
-                </div>
-                <div class="t-cover__filter" style="height:120vh;background-image: linear-gradient(to bottom, rgba(0,0,0,0.70), rgba(0,0,0,0.70));"></div>
-                <div class="t-container">
-                    <div class="t-width t-width_10 t256__mainblock">
-                        <div class="t256 t-align_center">
-                            <div class="t-cover__wrapper t-valign_middle" style="height:120vh;">
-                                <div class="t256__wrapper" data-hook-content="covercontent">
-                                    <button
-                                        type="button"
-                                        class="t256__play-icon"
-                                        onclick="javascript:t256showvideo('633800153');"
-                                        aria-label="Воспроизвести видео о фонде"
-                                        aria-describedby="videoDescription">
-                                        <svg role="img" width="70px" height="70px" viewBox="0 0 60 60" aria-hidden="true">
-                                            <g stroke="none" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd">
-                                                <g transform="translate(-691.000000, -3514.000000)" fill="#FFFFFF">
-                                                    <path d="M721,3574 C737.568542,3574 751,3560.56854 751,3544 C751,3527.43146 737.568542,3514 721,3514 C704.431458,3514 691,3527.43146 691,3544 C691,3560.56854 704.431458,3574 721,3574 Z M715,3534 L732,3544.5 L715,3555 L715,3534 Z"></path>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        <span class="sr-only" id="videoDescription">Посмотрите видео о деятельности нашего фонда</span>
-                                    </button>
-                                    <h1 class="t256__title t-title t-title_sm" field="title" id="heroTitle">
-                                        Благотворительный фонд<br />
-                                        Медико - социальной реабилитации<br />
-                                        «Центр помощи жертвам социальных проблем, терроризма и военных конфликтов»
-                                    </h1>
-                                    <div class="t256__descr t-descr t-descr_xs" field="descr">
-                                        <p style="text-align: center;">Основан в 2000г</p>
-                                    </div>
-                                    <span class="space"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t256__video-container t256__hidden" data-content-popup-video-url-youtube="MUGml5ybE6E?si=7Lh0IVKwkYaBrPP3">
-                    <div class="t256__video-carier"></div>
-                    <a class="t256__video-bg" href="javascript:t256hidevideo('633800153');" style="background:#000000; opacity:0.80;" aria-label="Закрыть видео"></a>
-                </div>
-            </div>
+<body>
+  <main>
+    <div class="card">
+      <div class="menuSecond">
+        <div onclick="location.href='/'" class="itemMenu">
+		Герои СВО
+		</div>
+		        <div onclick="location.href='/getbanner'" class="itemMenu">
+		Баннер
+		</div>
+				        <div onclick="location.href='/search'" class="itemMenu">
+		Поиск
+		</div>
+						        <div onclick="location.href='/addnew'" class="itemMenu">
+		Добавить
+		</div>
+		        <div id="sinodikLink" class="itemMenu">
+		Синодик
+		</div>
+      </div>
+<div class="searchSection">
+<form method="GET">
+<h1 class="onPage">Поиск по базе</h1>
+<input name="search" placeholder="Введите имя или фамилию" type="text" value="">
+<input type="submit" value="Искать">
+</form>
+<div style="font-size: 20px;text-align: center;color: red;">Введите в поисковую строку более 2х символов.</div>
+      <div class="card__footer">
+        <div class="recommend">
+          <h2>Победа и память!</h2>
         </div>
-
-        <!-- Навигация с улучшенной семантикой -->
-        <nav id="rec633319772" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px;" data-animationappear="off" data-record-type="257" aria-label="Основная навигация">
-            <!-- Навигационная разметка остается без изменений -->
-        </nav>
-
-        <!-- Основной контент -->
-        <main id="main-content">
-            <!-- Секции остаются без изменений, но добавляем семантические теги -->
-        </main>
-
-        <!-- Форма пожертвований с улучшенной доступностью -->
-        <section aria-labelledby="donationTitle" style="background: #f8f9fa; padding: 60px 0;">
-            <div class="t-container">
-                <div class="t-align_center">
-                    <h2 id="donationTitle" class="t-title t-title_lg">Поддержать фонд</h2>
-                    <p class="t-descr t-descr_md">Каждое пожертвование помогает нам продолжать нашу важную работу</p>
-                    
-                    <!-- Форма ЮKassa -->
-                    <div style="max-width: 400px; margin: 30px auto;">
-                        <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8" aria-labelledby="donationFormTitle">
-                            <div class="sr-only" id="donationFormTitle">Форма для пожертвования</div>
-                            
-                            <div class="ym-hidden-inputs">
-                                <input name="shopSuccessURL" type="hidden" value="">
-                                <input name="paymentType" type="hidden" value="AC">
-                            </div>
-                            
-                            <input name="customerNumber" type="hidden" value="Пожертвование на благотворительную деятельность">
-                            
-                            <div class="ym-payment-btn-block ym-align-space-between">
-                                <div class="ym-input-icon-rub">
-                                    <label for="donationAmount" class="sr-only">Сумма пожертвования</label>
-                                    <input 
-                                        id="donationAmount"
-                                        name="sum" 
-                                        placeholder="0.00" 
-                                        class="ym-input ym-sum-input ym-required-input" 
-                                        type="number" 
-                                        step="any"
-                                        min="10"
-                                        aria-required="true">
-                                </div>
-                                
-                                <button 
-                                    type="submit"
-                                    data-text="Пожертвовать" 
-                                    class="ym-btn-pay ym-result-price"
-                                    aria-describedby="donationHelp">
-                                    <span class="ym-text-crop">Пожертвовать</span>
-                                    <span class="ym-price-output"></span>
-                                </button>
-                                
-                                <svg class="ym-logo" width="114" height="27" viewBox="0 0 114 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle" role="img">
-                                    <!-- Логотип ЮKassa -->
-                                </svg>
-                            </div>
-                            
-                            <p id="donationHelp" class="t-descr t-descr_xs" style="margin-top: 15px; color: #666;">
-                                Минимальная сумма пожертвования: 10 рублей
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Футер -->
-        <footer role="contentinfo" style="background: #333; color: white; padding: 40px 0;">
-            <div class="t-container">
-                <div class="t-row">
-                    <div class="t-col t-col_4">
-                        <h3>Контакты</h3>
-                        <address>
-                            <p>Телефон: <a href="tel:+79363130949" style="color: white;">+7 (936) 313-09-49</a></p>
-                            <p>Telegram: <a href="https://t.me/medicosocial" style="color: white;">@medicosocial</a></p>
-                            <p>WhatsApp: <a href="https://wa.me/79363130949" style="color: white;">+7 (936) 313-09-49</a></p>
-                        </address>
-                    </div>
-                    <div class="t-col t-col_4">
-                        <h3>Реквизиты</h3>
-                        <p>Благотворительный фонд<br>медико-социальной реабилитации</p>
-                    </div>
-                    <div class="t-col t-col_4">
-                        <h3>Мы в соцсетях</h3>
-                        <div class="t-sociallinks">
-                            <ul role="list" class="t-sociallinks__wrapper" aria-label="Социальные сети">
-                                <!-- Соцсети -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-row" style="margin-top: 30px; border-top: 1px solid #555; padding-top: 20px;">
-                    <div class="t-col t-col_12 t-align_center">
-                        <p>&copy; 2024 Благотворительный фонд медико-социальной реабилитации. Все права защищены.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <div class="action">
+        </div>
+      </div>
+	   </div>
     </div>
+  </main>
+  <div id="sinodikBox"><select id="formR" name="background" class="widget"><option value="0">Все регионы</option><option value="01">Адыгея</option><option value="02">Башкортостан</option><option value="03">Бурятия</option><option value="04">Алтай</option><option value="05">Дагестан</option><option value="06">Ингушетия</option><option value="07">Кабардино-Балкарская Республика</option><option value="08">Калмыкия</option><option value="09">Карачаево-Черкесская Республика</option><option value="10">Карелия</option><option value="11">Коми</option><option value="12">Марий Эл</option><option value="13">Мордовия</option><option value="14">Якутия</option><option value="15">Северная Осетия - Алания</option><option value="16">Татарстан</option><option value="17">Тыва</option><option value="18">Удмуртская Республика</option><option value="19">Хакасия</option><option value="20">Чеченская Республика</option><option value="21">Чувашия</option><option value="22">Алтайский край</option><option value="23">Краснодарский край</option><option value="24">Красноярский край</option><option value="25">Приморский край</option><option value="26">Ставропольский край</option><option value="27">Хабаровский край</option><option value="28">Амурская область</option><option value="29">Архангельская область</option><option value="30">Астраханская область</option><option value="31">Белгородская область</option><option value="32">Брянская область</option><option value="33">Владимирская область</option><option value="34">Волгоградская область</option><option value="35">Вологодская область</option><option value="36">Воронежская область</option><option value="37">Ивановская область</option><option value="38">Иркутская область</option><option value="39">Калининградская область</option><option value="40">Калужская область</option><option value="41">Камчатский край</option><option value="42">Кемеровская область</option><option value="43">Кировская область</option><option value="44">Костромская область</option><option value="45">Курганская область</option><option value="46">Курская область</option><option value="47">Ленинградская область</option><option value="48">Липецкая область</option><option value="49">Магаданская область</option><option value="50">Московская область</option><option value="51">Мурманская область</option><option value="52">Нижегородская область</option><option value="53">Новгородская область</option><option value="54">Новосибирская область</option><option value="55">Омская область</option><option value="56">Оренбургская область</option><option value="57">Орловская область</option><option value="58">Пензенская область</option><option value="59">Пермский край</option><option value="60">Псковская область</option><option value="61">Ростовская область</option><option value="62">Рязанская область</option><option value="63">Самарская область</option><option value="64">Саратовская область</option><option value="65">Сахалинская область</option><option value="66">Свердловская область</option><option value="67">Смоленская область</option><option value="68">Тамбовская область</option><option value="69">Тверская область</option><option value="70">Томская область</option><option value="71">Тульская область</option><option value="72">Тюменская область</option><option value="73">Ульяновская область</option><option value="74">Челябинская область</option><option value="75">Забайкальский край</option><option value="76">Ярославская область</option><option value="77">Москва</option><option value="78">Санкт-Петербург</option><option value="79">Еврейская АО</option><option value="83">Ненецкий АО</option><option value="86">Ханты-Мансийский АО</option><option value="87">Чукотский АО</option><option value="89">Ямало-Ненецкий АО</option><option value="90">Запорожская область</option><option value="91">Республика Крым</option><option value="92">Севастополь</option><option value="93">ДНР</option><option value="94">ЛНР</option><option value="95">Херсонская область</option><option value="99"></option></select><span id="closeMessButton3">x</span></div>
+  <script>
+	//синодик
+document.getElementById('sinodikLink').addEventListener('click', function (e) {
 
-    <!-- Дополнительные скрипты -->
-    <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js"></script>
-    
-    <script>
-    // Улучшенная инициализация
-    document.addEventListener('DOMContentLoaded', function() {
-        // Показать индикатор загрузки
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        
-        // Скрыть индикатор когда все загружено
-        window.addEventListener('load', function() {
-            if (loadingSpinner) {
-                loadingSpinner.style.display = 'none';
-            }
-        });
-        
-        // Кнопка "Наверх"
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        if (scrollToTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.style.display = 'block';
-                } else {
-                    scrollToTopBtn.style.display = 'none';
-                }
-            });
-            
-            scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-        
-        // Улучшенная доступность для навигации
-        const menuItems = document.querySelectorAll('.t-menu__link-item');
-        menuItems.forEach(item => {
-            item.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.click();
-                }
-            });
-        });
-        
-        // Валидация формы пожертвований
-        const donationForm = document.querySelector('.yoomoney-payment-form');
-        if (donationForm) {
-            donationForm.addEventListener('submit', function(e) {
-                const amountInput = document.getElementById('donationAmount');
-                if (amountInput && amountInput.value < 10) {
-                    e.preventDefault();
-                    alert('Минимальная сумма пожертвования - 10 рублей');
-                    amountInput.focus();
-                }
-            });
-        }
-        
-        // Lazy loading для изображений
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-        
-        // Улучшенная обработка ошибок
-        window.addEventListener('error', function(e) {
-            console.error('Произошла ошибка:', e.error);
-        });
-    });
-    
-    // Анимация появления элементов при скролле
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.fade-in-up');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Инициализация при загрузке
-    animateOnScroll();
-    </script>
+	function goSinodik(){
+	  return $.ajax({
+	  data : {action: 'sinodik'},
+	  dataType: 'json',
+      url: "getvalue.php",
+	  type: "post"
+});
+  	  }
+	  var getSinodik = goSinodik();
+	  var testPrint = getSinodik.success(function (data) {
+		  var textNode = '<h2 class="headSinodik">Синодик</h2><p>Упокой, Господи, души усопших раб Твоих<br><br>' + data + '<br><br>, и прости им вся согрешения вольная и невольная, и даруй им Царствие Небесное.</p>';
+  	
+	var testBlock = document.getElementById('div1');
+	var sinodikPlace = document.getElementById('sinodikBox');
+		document.getElementById('formR').value=0;
+	if(testBlock){
+		testBlock.innerHTML = textNode;
+	}
+	else{
+	var newNode = document.createElement('div');
+	newNode.setAttribute("id", "div1");
+	newNode.innerHTML = textNode;
+	sinodikPlace.appendChild(newNode);
+	}
+	sinodikPlace.style.display = 'block';
 
-    <!-- Стандартные скрипты Tilda -->
-    <script src="https://static.tildacdn.com/ws/project7749907/tilda-blocks-page39170591.min.js?t=1754031807" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-lazyload-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-cover-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-menu-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-t994-stories-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/hammer.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-slds-1.4.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/masonry-imagesloaded.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-video-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-forms-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-zero-1.1.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-zoom-2.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-zero-scale-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-skiplink-1.0.min.js" charset="utf-8" async></script>
-    <script src="https://static.tildacdn.com/js/tilda-events-1.0.min.js" charset="utf-8" async></script>
+  	    var cl = document.getElementById('closeMessButton3');
+cl.addEventListener('click', function (e) {
+  var div3 = document.getElementById('sinodikBox');
+  div3.style.display = 'none';
+});
+});
+});
 
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</body>
+
+document.querySelector('#formR').addEventListener("change", function() {
+var regValue = this.value;
+	function goSinodik(regValue){
+	  return $.ajax({
+	  data : {action: 'sinodik', regi: regValue},
+	  dataType: 'json',
+      url: "/getvalue.php",
+	  type: "post"
+});
+  	  }
+
+	  var getSinodik = goSinodik(regValue);
+	  var testPrint = getSinodik.success(function (data) {
+		  var textNode = '<h2 class="headSinodik">Синодик</h2><p>Упокой, Господи, души усопших раб Твоих<br><br>' + data + '<br><br>, и прости им вся согрешения вольная и невольная, и даруй им Царствие Небесное.</p>';
+  	var testBlock = document.getElementById('div1');
+	var sinodikPlace = document.getElementById('sinodikBox');
+	if(testBlock){
+		testBlock.innerHTML = textNode;
+	}
+	else{
+	var newNode = document.createElement('div');
+	newNode.setAttribute("id", "div1");
+	newNode.innerHTML = textNode;
+	sinodikPlace.appendChild(newNode);
+	}
+	sinodikPlace.style.display = 'block';
+
+  	    var cl = document.getElementById('closeMessButton3');
+cl.addEventListener('click', function (e) {
+  var div3 = document.getElementById('sinodikBox');
+  div3.style.display = 'none';
+});
+
+});
+
+
+
+});
+  </script>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(91406104, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/91406104" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXB0FF00YB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZXB0FF00YB');
+</script></body>
+
 </html>
