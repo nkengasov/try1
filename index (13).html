@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательный Хаб | Платформа для современных педагогов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8A84FF;
+            --primary-dark: #5752D4;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --light: #F8F9FF;
+            --dark: #2D2B55;
+            --gray: #6C757D;
+            --success: #4CD964;
+            --warning: #FF9500;
+            --card-bg: #FFFFFF;
+            --border-radius: 24px;
+            --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--dark);
+            padding: 18px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 13px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background: rgba(108, 99, 255, 0.05);
+        }
+
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin: 0 20px 20px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,261.3C672,256,768,224,864,213.3C960,203,1056,213,1152,229.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .hero-element {
+            position: absolute;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+        }
+
+        .hero-element:nth-child(2) {
+            top: 15%;
+            right: 10%;
+        }
+
+        .hero-element:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+        }
+
+        .hero-element:nth-child(4) {
+            bottom: 15%;
+            right: 7%;
+        }
+
+        .hero-element:nth-child(5) {
+            top: 40%;
+            left: 15%;
+        }
+
+        .hero-element:nth-child(6) {
+            top: 35%;
+            right: 15%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards;
+            background: linear-gradient(135deg, #ffffff, #e6f7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #36D1DC, #6C63FF);
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(255, 101, 132, 0.4);
+            transition: var(--transition);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 101, 132, 0.5);
+        }
+
+        .app-badge {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease 0.9s forwards;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 14px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #36D1DC, #6C63FF);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            transition: var(--transition);
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .feature-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .stats .section-title h2 {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .stats .section-title h2::after {
+            background: linear-gradient(90deg, #ffffff, #e6f7ff);
+        }
+
+        .stats .section-title p {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* App Showcase */
+        .app-showcase {
+            padding: 120px 0;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .showcase-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .showcase-content {
+            flex: 1;
+        }
+
+        .showcase-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .showcase-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #36D1DC, #6C63FF);
+            border-radius: 2px;
+        }
+
+        .showcase-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .showcase-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .showcase-features li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .showcase-features li i {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        .showcase-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .showcase-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .showcase-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 100px 0;
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .screenshot-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .screenshot-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+        }
+
+        .screenshot-image {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .screenshot-content {
+            padding: 24px;
+        }
+
+        .screenshot-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .screenshot-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .testimonials .section-title h2 {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .testimonials .section-title h2::after {
+            background: linear-gradient(90deg, #ffffff, #e6f7ff);
+        }
+
+        .testimonials .section-title p {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .faq-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-question {
+            padding: 24px 30px;
+            background: var(--card-bg);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #f8f9ff;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--card-bg);
+        }
+
+        .faq-answer.active {
+            padding: 0 30px 24px;
+            max-height: 500px;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .download-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .download h2 {
+            font-size: 2.8rem;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff, #e6f7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .download h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffffff, #e6f7ff);
+            border-radius: 2px;
+        }
+
+        .download p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .download-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            margin: 20px 20px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .showcase-container {
+                flex-direction: column;
+            }
+            
+            .showcase-image {
+                order: -1;
+                transform: translateY(30px);
+            }
+            
+            .hero, .features, .stats, .app-showcase, .screenshots, .testimonials, .faq, .download, footer {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 15px;
+            }
+            
+            .logo {
+                flex: 1;
+            }
+            
+            nav ul {
+                display: none;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .download-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                display: flex;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 16px;
+                text-align: center;
+                border-radius: 8px;
+            }
+            
+            .app-badge {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-element {
+                font-size: 2.5rem;
+            }
+            
+            .hero, .features, .stats, .app-showcase, .screenshots, .testimonials, .faq, .download, footer {
+                margin: 5px;
+                border-radius: 16px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .showcase-content h2 {
+                font-size: 2rem;
+            }
+            
+            .download h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .badge {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">Образовательный Хаб</div>
+                        <div class="logo-subtitle">Платформа для педагогов</div>
+                    </div>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features" class="active">Возможности</a></li>
+                        <li><a href="#app">О приложении</a></li>
+                        <li><a href="#screenshots">Скриншоты</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#faq">Вопросы</a></li>
+                        <li><a href="#download">Скачать</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background-elements">
+            <div class="hero-element"><i class="fas fa-book"></i></div>
+            <div class="hero-element"><i class="fas fa-pencil-alt"></i></div>
+            <div class="hero-element"><i class="fas fa-ruler-combined"></i></div>
+            <div class="hero-element"><i class="fas fa-calculator"></i></div>
+            <div class="hero-element"><i class="fas fa-globe"></i></div>
+            <div class="hero-element"><i class="fas fa-flask"></i></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Инновационная платформа для современного образования</h1>
+                <p>Объединяем передовые технологии, методические материалы и сообщество педагогов для создания эффективной образовательной среды нового поколения</p>
+                <a href="education_hub.apk" class="cta-button" download="Education_Hub.apk">
+                    <i class="fas fa-download"></i> Скачать приложение
+                </a>
+                <div class="app-badge">
+                    <div class="badge">
+                        <i class="fas fa-rocket"></i> Инновационный подход
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-users"></i> Сообщество экспертов
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-graduation-cap"></i> Профессиональное развитие
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мощные возможности для педагогов</h2>
+                <p>Инструменты, которые экономят время и повышают эффективность образовательного процесса</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Библиотека материалов</h3>
+                    <ul class="feature-list">
+                        <li>Более 5000 готовых конспектов уроков</li>
+                        <li>Методические разработки по всем предметам</li>
+                        <li>Интерактивные презентации и задания</li>
+                        <li>Регулярное обновление контента</li>
+                        <li>Возможность добавлять собственные материалы</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Искусственный интеллект</h3>
+                    <ul class="feature-list">
+                        <li>Генерация индивидуальных планов уроков</li>
+                        <li>Автоматическая проверка заданий</li>
+                        <li>Анализ успеваемости учащихся</li>
+                        <li>Рекомендации по улучшению методик</li>
+                        <li>Персональный помощник педагога</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Аналитика и отчетность</h3>
+                    <ul class="feature-list">
+                        <li>Детальная статистика успеваемости</li>
+                        <li>Автоматическое формирование отчетов</li>
+                        <li>Визуализация образовательных результатов</li>
+                        <li>Сравнительный анализ по классам</li>
+                        <li>Интеграция с электронными журналами</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Образовательный Хаб в цифрах</h2>
+                <p>Платформа, которой доверяют тысячи педагогов по всей стране</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15400" data-suffix="+">0</span>
+                    <div class="stat-label">активных пользователей</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5200" data-suffix="+">0</span>
+                    <div class="stat-label">образовательных материалов</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="96" data-suffix="%">0%</span>
+                    <div class="stat-label">довольных педагогов</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4.9">0</span>
+                    <div class="stat-label">средний рейтинг приложения</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Showcase -->
+    <section class="app-showcase" id="app">
+        <div class="container">
+            <div class="showcase-container">
+                <div class="showcase-content">
+                    <h2>Интуитивный интерфейс для эффективной работы</h2>
+                    <p>Образовательный Хаб разработан с учетом потребностей современных педагогов. Простой и понятный интерфейс позволяет быстро освоить все функции платформы и сосредоточиться на главном - качестве образования.</p>
+                    
+                    <ul class="showcase-features">
+                        <li><i class="fas fa-check-circle"></i> Персонализированная лента материалов</li>
+                        <li><i class="fas fa-check-circle"></i> Умный поиск по тысячам ресурсов</li>
+                        <li><i class="fas fa-check-circle"></i> Интеграция с популярными образовательными сервисами</li>
+                        <li><i class="fas fa-check-circle"></i> Офлайн-доступ к избранным материалам</li>
+                        <li><i class="fas fa-check-circle"></i> Регулярные обновления и новые функции</li>
+                    </ul>
+                    
+                    <a href="education_hub.apk" class="cta-button" download="Education_Hub.apk">
+                        <i class="fas fa-download"></i> Попробовать бесплатно
+                    </a>
+                </div>
+                <div class="showcase-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%236C63FF'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white'/%3E%3Ccircle cx='200' cy='120' r='30' fill='%2336D1DC'/%3E%3Crect x='80' y='170' width='240' height='4' rx='2' fill='%236C63FF'/%3E%3Crect x='80' y='180' width='200' height='4' rx='2' fill='%236C63FF'/%3E%3Crect x='80' y='190' width='180' height='4' rx='2' fill='%236C63FF'/%3E%3Ctext x='200' y='40' text-anchor='middle' font-family='Arial' font-size='16' fill='%236C63FF'%3EОбразовательный Хаб%3C/text%3E%3C/svg%3E" alt="Интерфейс приложения Образовательный Хаб">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="section-title">
+                <h2>Интерфейс приложения</h2>
+                <p>Удобный и современный дизайн, созданный для продуктивной работы</p>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%238A84FF'/%3E%3Crect x='50' y='50' width='300' height='300' rx='15' fill='white'/%3E%3Crect x='80' y='80' width='240' height='40' rx='8' fill='%2336D1DC'/%3E%3Crect x='80' y='140' width='240' height='20' rx='4' fill='%23f0f0f0'/%3E%3Crect x='80' y='170' width='240' height='20' rx='4' fill='%23f0f0f0'/%3E%3Crect x='80' y='200' width='240' height='20' rx='4' fill='%23f0f0f0'/%3E%3Crect x='80' y='250' width='100' height='40' rx='8' fill='%236C63FF'/%3E%3Crect x='200' y='250' width='120' height='40' rx='8' fill='%23FF6584'/%3E%3Ctext x='200' y='40' text-anchor='middle' font-family='Arial' font-size='14' fill='%236C63FF'%3EБиблиотека материалов%3C/text%3E%3C/svg%3E" alt="Библиотека учебных материалов">
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Библиотека учебных материалов</h3>
+                        <p>Доступ к тысячам методических разработок, конспектов и учебных пособий</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%2336D1DC'/%3E%3Crect x='50' y='50' width='300' height='300' rx='15' fill='white'/%3E%3Ccircle cx='200' cy='150' r='50' fill='%236C63FF'/%3E%3Cpath d='M180 130 L220 150 L180 170 Z' fill='white'/%3E%3Crect x='80' y='220' width='240' height='60' rx='8' fill='%23f0f0f0'/%3E%3Crect x='100' y='230' width='200' height='15' rx='4' fill='%2336D1DC'/%3E%3Crect x='100' y='250' width='180' height='10' rx='2' fill='%23cccccc'/%3E%3Crect x='100' y='265' width='150' height='10' rx='2' fill='%23cccccc'/%3E%3Ctext x='200' y='40' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EВидеоуроки%3C/text%3E%3C/svg%3E" alt="Интерактивное обучение">
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Интерактивное обучение</h3>
+                        <p>Современные инструменты для вовлечения учащихся в образовательный процесс</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23FF6584'/%3E%3Crect x='50' y='50' width='300' height='300' rx='15' fill='white'/%3E%3Crect x='80' y='80' width='240' height='180' rx='8' fill='%23f8f9ff'/%3E%3Crect x='100' y='100' width='60' height='60' rx='8' fill='%236C63FF'/%3E%3Crect x='180' y='100' width='60' height='60' rx='8' fill='%2336D1DC'/%3E%3Crect x='260' y='100' width='60' height='60' rx='8' fill='%23FF6584'/%3E%3Crect x='100' y='180' width='220' height='4' rx='2' fill='%236C63FF'/%3E%3Crect x='100' y='190' width='180' height='4' rx='2' fill='%2336D1DC'/%3E%3Crect x='100' y='200' width='200' height='4' rx='2' fill='%23FF6584'/%3E%3Crect x='80' y='280' width='120' height='40' rx='8' fill='%236C63FF'/%3E%3Crect x='220' y='280' width='100' height='40' rx='8' fill='%2336D1DC'/%3E%3Ctext x='200' y='40' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EАналитика успеваемости%3C/text%3E%3C/svg%3E" alt="Онлайн образование">
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Аналитика успеваемости</h3>
+                        <p>Детальная статистика и визуализация образовательных результатов учащихся</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы педагогов</h2>
+                <p>Что говорят пользователи об Образовательном Хабе</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Образовательный Хаб кардинально изменил мой подход к подготовке уроков. Теперь я трачу на это в 3 раза меньше времени, а качество материалов стало значительно выше."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            АС
+                        </div>
+                        <div class="author-info">
+                            <h4>Анна Смирнова</h4>
+                            <p>Учитель начальных классов</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Искусственный интеллект в приложении - это не просто модная функция, а реальный помощник. Он предлагает интересные идеи для уроков, которые я бы сама не придумала."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            МК
+                        </div>
+                        <div class="author-info">
+                            <h4>Мария Козлова</h4>
+                            <p>Преподаватель английского языка</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Сообщество педагогов в приложении - это бесценный ресурс. Обмен опытом, совместные проекты, обсуждение методик - все это помогает профессионально расти."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            ДП
+                        </div>
+                        <div class="author-info">
+                            <h4>Дмитрий Петров</h4>
+                            <p>Учитель информатики</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Ответы на самые популярные вопросы о платформе</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как часто обновляется контент в приложении?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы ежедневно добавляем новые материалы от наших экспертов и партнеров. Кроме того, еженедельно выходят крупные обновления с новыми функциями и улучшениями. Все пользователи получают уведомления о новых материалах, релевантных их предметной области.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли использовать приложение без подключения к интернету?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, вы можете скачивать материалы для офлайн-использования. После загрузки контента он будет доступен без подключения к интернету. Исключение составляют функции, требующие обработки данных в реальном времени, такие как ИИ-помощник и синхронизация между устройствами.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Есть ли бесплатная версия приложения?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, мы предлагаем бесплатную версию с базовым набором функций, которая включает доступ к ограниченному количеству материалов и основным инструментам. Премиум-версия открывает полный доступ ко всем ресурсам платформы, расширенным функциям ИИ-помощника и приоритетную техническую поддержку.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как работает ИИ-помощник в приложении?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Наш ИИ-помощник использует передовые алгоритмы машинного обучения для анализа ваших потребностей и создания персонализированных материалов. Он может генерировать планы уроков, подбирать игры и упражнения, адаптировать контент под возрастные особенности детей, проверять задания и предоставлять аналитику по успеваемости учащихся.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Начните использовать Образовательный Хаб сегодня</h2>
+                <p>Присоединяйтесь к сообществу прогрессивных педагогов, которые уже используют нашу платформу для повышения эффективности своей работы</p>
+                <a href="education_hub.apk" class="cta-button" download="Education_Hub.apk">
+                    <i class="fas fa-download"></i> Скачать приложение
+                </a>
+                <div class="download-stats">
+                    <div class="stat">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-label">Педагогов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5K+</div>
+                        <div class="stat-label">Материалов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Рейтинг</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Образовательный Хаб</h3>
+                    <p>Инновационная платформа для современных педагогов, объединяющая передовые технологии, методические материалы и профессиональное сообщество.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#app">О приложении</a></li>
+                        <li><a href="#screenshots">Скриншоты</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#faq">Вопросы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Поддержка</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Центр помощи</a></li>
+                        <li><a href="#">Сообщество</a></li>
+                        <li><a href="#">Обратная связь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурсы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Вебинары</a></li>
+                        <li><a href="#">Методические материалы</a></li>
+                        <li><a href="#">Курсы повышения квалификации</a></li>
+                        <li><a href="#">Партнерская программа</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Образовательный Хаб. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                // Open current answer if it was closed
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Animate numbers with improved performance
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+            let animatedCount = 0;
+            const totalToAnimate = statNumbers.length;
+            
+            statNumbers.forEach(statNumber => {
+                const target = parseFloat(statNumber.getAttribute('data-target'));
+                const suffix = statNumber.getAttribute('data-suffix') || '';
+                const duration = 2000;
+                const startTime = Date.now();
+                
+                function updateNumber() {
+                    const currentTime = Date.now();
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease-out effect
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    
+                    let currentValue;
+                    if (target === 4.9) {
+                        currentValue = (target * easeProgress).toFixed(1);
+                    } else {
+                        currentValue = Math.floor(target * easeProgress);
+                    }
+                    
+                    statNumber.textContent = currentValue + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        // Final value
+                        if (target === 4.9) {
+                            statNumber.textContent = target.toFixed(1) + suffix;
+                        } else {
+                            statNumber.textContent = target + suffix;
+                        }
+                        animatedCount++;
+                    }
+                }
+                
+                // Stagger the animations
+                setTimeout(updateNumber, animatedCount * 200);
+                animatedCount++;
+            });
+        }
+
+        // Simple visibility detector
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Track which elements have been animated
+        const animatedElements = new Set();
+
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .faq-item, .screenshot-card, .stat-item, .showcase-image');
+            
+            elements.forEach(el => {
+                if (isElementInViewport(el) && !animatedElements.has(el)) {
+                    el.classList.add('visible');
+                    animatedElements.add(el);
+                    
+                    // Start number animation when stats section is fully visible
+                    if (el.classList.contains('stat-item')) {
+                        const allStats = document.querySelectorAll('.stat-item');
+                        const allVisible = Array.from(allStats).every(stat => 
+                            animatedElements.has(stat)
+                        );
+                        
+                        if (allVisible) {
+                            setTimeout(animateNumbers, 500);
+                        }
+                    }
+                }
+            });
+        }
+
+        // Check visibility on load and scroll
+        document.addEventListener('DOMContentLoaded', checkVisibility);
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('resize', checkVisibility);
+
+        // Initial check after load
+        setTimeout(checkVisibility, 100);
+
+        // Preload functionality for better performance
+        window.addEventListener('load', function() {
+            // Add loaded class for any post-load animations
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
