@@ -8,19 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6C63FF;
-            --primary-light: #8A84FF;
-            --primary-dark: #5752D4;
-            --secondary: #FF6584;
-            --accent: #36D1DC;
-            --light: #F8F9FF;
-            --dark: #2D2B55;
-            --gray: #6C757D;
+            --primary: #1a472a;
+            --primary-light: #2d5a3a;
+            --primary-dark: #0f2e1a;
+            --secondary: #c8a951;
+            --accent: #4a7c59;
+            --light: #f5f9f7;
+            --dark: #0d1f13;
+            --gray: #6c757d;
             --success: #4CD964;
             --warning: #FF9500;
             --card-bg: #FFFFFF;
-            --border-radius: 24px;
-            --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+            --border-radius: 16px;
+            --shadow: 0 10px 30px rgba(26, 71, 42, 0.15);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -121,7 +121,7 @@
 
         nav a:hover {
             color: var(--primary);
-            background: rgba(108, 99, 255, 0.05);
+            background: rgba(26, 71, 42, 0.05);
         }
 
         nav a.active {
@@ -138,7 +138,7 @@
         /* Hero Section */
         .hero {
             padding: 80px 0 60px;
-            background: linear-gradient(135deg, #f5f7ff 0%, #e6e9ff 100%);
+            background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             margin-bottom: 60px;
         }
@@ -198,7 +198,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(26, 71, 42, 0.3);
         }
 
         .btn-secondary {
@@ -208,7 +208,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(108, 99, 255, 0.05);
+            background: rgba(26, 71, 42, 0.05);
         }
 
         .hero-stats {
@@ -239,15 +239,30 @@
             align-items: center;
         }
 
-        .hero-image img {
-            max-width: 100%;
+        .hero-image-placeholder {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
-        .hero-image img:hover {
-            transform: translateY(-10px);
+        .hero-image-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .hero-image-placeholder p {
+            font-size: 1.1rem;
+            max-width: 300px;
         }
 
         /* Features */
@@ -290,7 +305,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(26, 71, 42, 0.2);
         }
 
         .feature-icon {
@@ -316,7 +331,7 @@
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7ff 0%, #e6e9ff 100%);
+            background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: var(--border-radius);
             margin-bottom: 60px;
         }
@@ -447,7 +462,7 @@
             bottom: -8px;
             width: 40px;
             height: 3px;
-            background: var(--primary);
+            background: var(--accent);
             border-radius: 3px;
         }
 
@@ -607,7 +622,10 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Поиск участников СВО">
+                    <div class="hero-image-placeholder">
+                        <i class="fas fa-search-location"></i>
+                        <p>Поиск участников специальной военной операции</p>
+                    </div>
                 </div>
             </div>
         </div>
