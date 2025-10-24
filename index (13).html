@@ -8,20 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4a6741;
-            --primary-light: #6b8c5d;
-            --primary-dark: #2f4529;
-            --secondary: #b38e3d;
-            --accent: #7a9e64;
-            --light: #f5f7f2;
-            --dark: #1a2317;
+            --primary: #1a472a;
+            --primary-light: #2d5a3a;
+            --primary-dark: #0f2e1a;
+            --secondary: #c8a951;
+            --accent: #4a7c59;
+            --light: #f5f9f7;
+            --dark: #0d1f13;
             --gray: #6c757d;
             --success: #4CD964;
             --warning: #FF9500;
             --card-bg: #FFFFFF;
-            --border-radius: 12px;
-            --shadow: 0 8px 25px rgba(74, 103, 65, 0.15);
-            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 16px;
+            --shadow: 0 10px 30px rgba(26, 71, 42, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -36,24 +36,6 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(179, 142, 61, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 30%, rgba(179, 142, 61, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 50% 80%, rgba(179, 142, 61, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 20% 70%, rgba(74, 103, 65, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 10%, rgba(74, 103, 65, 0.1) 0%, transparent 20%);
-            z-index: -1;
-            pointer-events: none;
         }
 
         .container {
@@ -124,7 +106,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 15px;
         }
 
         nav a {
@@ -132,14 +114,14 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            padding: 8px 16px;
+            padding: 8px 13px;
             border-radius: 8px;
             position: relative;
         }
 
         nav a:hover {
             color: var(--primary);
-            background: rgba(74, 103, 65, 0.05);
+            background: rgba(26, 71, 42, 0.05);
         }
 
         nav a.active {
@@ -156,7 +138,7 @@
         /* Hero Section */
         .hero {
             padding: 80px 0 60px;
-            background: linear-gradient(135deg, #f5f7f2 0%, #e8efe3 100%);
+            background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             margin-bottom: 60px;
         }
@@ -216,7 +198,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(74, 103, 65, 0.3);
+            box-shadow: 0 15px 30px rgba(26, 71, 42, 0.3);
         }
 
         .btn-secondary {
@@ -226,7 +208,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(74, 103, 65, 0.05);
+            background: rgba(26, 71, 42, 0.05);
         }
 
         .hero-stats {
@@ -257,16 +239,30 @@
             align-items: center;
         }
 
-        .hero-image img {
+        .hero-image-placeholder {
             width: 100%;
-            max-width: 500px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
-        .hero-image img:hover {
-            transform: translateY(-10px);
+        .hero-image-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .hero-image-placeholder p {
+            font-size: 1.1rem;
+            max-width: 300px;
         }
 
         /* Features */
@@ -309,7 +305,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(74, 103, 65, 0.2);
+            box-shadow: 0 20px 40px rgba(26, 71, 42, 0.2);
         }
 
         .feature-icon {
@@ -335,50 +331,15 @@
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7f2 0%, #e8efe3 100%);
+            background: linear-gradient(135deg, #f5f9f7 0%, #e6f0eb 100%);
             border-radius: var(--border-radius);
             margin-bottom: 60px;
-            position: relative;
         }
 
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(179, 142, 61, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 30%, rgba(179, 142, 61, 0.1) 0%, transparent 20%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .testimonials .section-title {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(74, 103, 65, 0.2);
-        }
-
-        .testimonials .section-subtitle {
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonials-container {
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            height: 300px;
-        }
-
-        .testimonials-carousel {
-            display: flex;
-            transition: transform 0.8s ease;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .testimonial-card {
@@ -387,16 +348,10 @@
             padding: 30px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            min-width: 100%;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
-        .testimonial-card.active {
-            opacity: 1;
-            position: relative;
+        .testimonial-card:hover {
+            transform: translateY(-10px);
         }
 
         .testimonial-text {
@@ -629,6 +584,7 @@
                         <li><a href="#">База данных</a></li>
                         <li><a href="#">Помощь</a></li>
                         <li><a href="#">Контакты</a></li>
+                        <li><a href="#" class="btn btn-primary">Войти</a></li>
                     </ul>
                 </nav>
             </div>
@@ -666,7 +622,10 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://uszn-nu.ru/images/SVO/Otdel-po-rabote-s-ucastnikami-SVO2.jpg" alt="Поиск участников СВО">
+                    <div class="hero-image-placeholder">
+                        <i class="fas fa-search-location"></i>
+                        <p>Поиск участников специальной военной операции</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -712,38 +671,36 @@
             <h2 class="section-title">Истории успеха</h2>
             <p class="section-subtitle">Реальные отзывы от людей, которые нашли своих близких с помощью нашего сервиса</p>
             
-            <div class="testimonials-container">
-                <div class="testimonials-carousel">
-                    <div class="testimonial-card active">
-                        <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">ОК</div>
-                            <div class="testimonial-info">
-                                <h4>Ольга К.</h4>
-                                <p>Нашла мужа</p>
-                            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Я реально нашла своего мужа через этот сайт! После 3 месяцев без вестей, благодаря вашей базе данных, я смогла установить с ним связь. Спасибо вам огромное!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ОК</div>
+                        <div class="testimonial-info">
+                            <h4>Ольга К.</h4>
+                            <p>Нашла мужа</p>
                         </div>
                     </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">АС</div>
-                            <div class="testimonial-info">
-                                <h4>Алексей С.</h4>
-                                <p>Нашел брата</p>
-                            </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">С помощью этого сервиса нашел своего брата, который считался пропавшим без вести. Оказалось, он был в госпитале с легким ранением. Спасибо за вашу работу!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">АС</div>
+                        <div class="testimonial-info">
+                            <h4>Алексей С.</h4>
+                            <p>Нашел брата</p>
                         </div>
                     </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">МП</div>
-                            <div class="testimonial-info">
-                                <h4>Мария П.</h4>
-                                <p>Нашла сына</p>
-                            </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">После долгих месяцев ожидания и беспокойства, через ваш сайт удалось найти сына. Он был в другом подразделении, и связь не работала. Низкий поклон за ваш труд!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">МП</div>
+                        <div class="testimonial-info">
+                            <h4>Мария П.</h4>
+                            <p>Нашла сына</p>
                         </div>
                     </div>
                 </div>
@@ -825,7 +782,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                     
@@ -867,20 +824,6 @@
             const foundCountElement = document.getElementById('found-count');
             animateNumber(foundCountElement, 8149, 2000); // 8149 over 2 seconds
         }, 2000);
-
-        // Testimonials carousel
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const testimonialContainer = document.querySelector('.testimonials-carousel');
-        
-        function showNextTestimonial() {
-            testimonials[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            testimonials[currentTestimonial].classList.add('active');
-        }
-        
-        // Start carousel after 3 seconds
-        setInterval(showNextTestimonial, 3000);
     </script>
 </body>
 </html>
